@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Weather</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+</head>
+<body>
+
+	<header class="header">
+		<div class="container">
+			<div class="header__inner">				
+				<nav class="nav">
+					<a class="nav__link active" href="#app">Weather</a>
+					<a class="nav__link" href="#app">Service</a>
+					<a class="nav__link" href="#app">Blog</a>
+					<a class="nav__link" href="#contact">Contact</a>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<div class="intro">
+		<div class="container">
+			<div class="intro__inner">
+				<h1 class="intro__title">Welcome to Weather Page</h1>
+		
+				<a class="btn" href="#app">Wath Weather</a>
+			</div>
+		</div>
+	</div>
+
+	<section class="container" id="app" style="padding-top:35px">
+		<div class="col-md-12">
+			<div class="form-group">
+				<input type="text" class="form-control" v-model="city" placeholder="Wpiś miasto ...">				
+			</div>
+
+			<button type="submit" v-on:click='getData' class="btn btn-secondary">Submit</button>
+			
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<ul class="list-group">
+						<img v-if="data.weather[0].icon" src="http://openweathermap.org/img/w/{{data.weather[0].icon}}.png">
+						<li class="list-group-item">Pogoda: {{data.weather[0].main}}</li>
+						<li class="list-group-item">Opis: {{data.weather[0].description}}</li>
+						<li class="list-group-item">Max Temp: {{data.main.temp_max}}</li>
+						<li class="list-group-item">Min Temp: {{data.main.temp_min}}</li>
+						<li class="list-group-item">H: {{data.main.humidity}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer id="contact" class="footer">
+			<div class="container">
+		
+				<div class="footer__inner">
+					<div class="footer__block">
+						<h4 class="footer__title">Location</h4>
+						<address class="footer__address">
+							<div>00795 Warsaw</div>
+							<div>+48 570 402 118</div>
+							<div>kozanchyn.vladeo@gmail.com</div>
+						</address>
+					</div>
+		
+					<div class="footer__block">
+						<h4 class="footer__title">Share with Love</h4>
+						<div class="social">
+							<a href="#" class="facebook"><i class="fa fa-facebook"></i></a> 
+							<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
+							<a href="#" class="google"><i class="fa fa-google"></i></a> 
+							<a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+							<a href="#" class="youtube"><i class="fa fa-youtube"></i></a> 
+						</div>
+					</div>
+		
+					<div class="footer__block">
+						<h4 class="footer__title">About</h4>
+						<div class="footer__text">
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+		
+			<div class="copyright">
+				<div class="container">
+					<div class="copyright__text">
+						<div>Copyright © 2019 WeatherPage for Cube Group. All Rights Reserved</div>
+						<div>Made <span>by Vladyslav Kozanchyn</span></div>
+					</div>
+				</div>
+			</div>
+	</footer> 
+
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+	<script src="weather.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
